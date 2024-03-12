@@ -1,0 +1,6 @@
+[submodule "hdl"]
+	path = hdl
+	url = https://github.com/analogdevicesinc/hdl.git
+[submodule "PYNQ"]
+	path = PYNQ
+	url = https://github.com/Xilinx/PYNQ.git
