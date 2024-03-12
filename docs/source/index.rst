@@ -14,6 +14,7 @@ Contents
    sdr_primer
    pluto
    pynq
+   building
    references
 
 
