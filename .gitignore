@@ -1,5 +1,5 @@
 **/build
 **/*.log
 **/*.jou
-Pluto/base/pluto.*
+Pluto/base/system/pluto.*
 **/.Xil
