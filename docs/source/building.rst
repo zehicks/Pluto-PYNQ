@@ -19,11 +19,10 @@ The PYNQ v3.0 release requires the use of Xilinx tools v2022.1. This includes Vi
 Installing PYNQ Dependencies
 ----------------------------
 
- A script is provided to run the PYNQ host setup script ``./PYNQ/sdbuild/scripts/setup_host.sh`` and download the prebuilt root filesystem and source distribution from the `PYNQ Development Boards webpage <http://www.pynq.io/board.html/>`_.
+A host setup script is provided to install the PYNQ dependencies, add the dependencies to ``$PATH``, and download the prebuilt root filesystem and source distribution from the `PYNQ Development Boards webpage <http://www.pynq.io/board.html/>`_.
 
 .. code-block:: console
     
-    chmod +x ./setup_pynq.sh
     ./setup_pynq.sh
 
 Building the Base Image
