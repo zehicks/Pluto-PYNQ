@@ -12,4 +12,5 @@ pynq:
 
 clean:
 	rm -rf ./Pluto/base/system/.Xil ./Pluto/base/system/pluto.* ./Pluto/base/system/pluto.xpr ./Pluto/base/system/*.log ./Pluto/base/system/*.jou
+	rm -rf ./PYNQ/boards/Pluto
 	$(MAKE) -C ./PYNQ/sdbuild clean
