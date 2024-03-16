@@ -4,3 +4,6 @@
 [submodule "PYNQ"]
 	path = PYNQ
 	url = https://github.com/Xilinx/PYNQ.git
+[submodule "plutosdr-fw"]
+	path = plutosdr-fw
+	url = git@github.com:zehicks/plutosdr-fw.git
