@@ -15,6 +15,8 @@ Contents
    pluto
    pynq
    building
+   adi_firmware
+   installing
    references
 
 
