@@ -6,50 +6,28 @@ Ensure that you have followed the :ref:`Installing PYNQ Dependencies` and :ref:`
 USB Drive Setup
 ---------------
 
-Format at 32 GB USB drive as ``ext4`` with no partition table using the following command:
+Format a 32 GB USB drive as ``ext4`` with no partition table using the following command. You may choose any name you'd like for ``<VOLUME_NAME>``.
 
 .. code-block:: console
     
-    mkfs.ext4 -L <VOLUME_NAME> /dev/<YOUR_DEVICE>
+    sudo mkfs.ext4 -L <VOLUME_NAME> /dev/<YOUR_DEVICE>
 
-Next, ensure that the USB drive is mounted, copy the PYNQ rootfs tarball to the USB drive, and extract it:
-
-.. code-block:: console
-
-    cp ./PYNQ/sdbuild/prebuilt/pynq_rootfs.arm.tar.gz /media/<USER>/<USB_DRIVE>
-    cd /media/<USER>/<USB_DRIVE>
-    tar -xzvf pynq_rootfs.arm.tar.gz
-
-Also copy the compressed kernel and devicetree blob to the root of the USB drive:
-
-.. code-block:: console
-
-    cp ./PYNQ/sdbuild/build/Pluto/zImage /media/<USER>/<USB_DRIVE>
-    cp ./PYNQ/sdbuild/build/Pluto/system.dtb /media/<USER>/<USB_DRIVE>
-
-The default u-boot on the Pluto times out when copying large files over USB, so the compressed kernel image must be split into two parts on the USB drive using the following command:
-
-.. code-block:: console
-
-    cd /media/<USER>/<USB_DRIVE>
-    split -b 3500000 zImage zImage_
-
-You should see two files called ``zImage_aa`` and ``zImage_ab`` on the USB drive.
+Then, remount the drive and run ``make usb USB_PATH=<PATH/TO/YOUR/MOUNT>`` to copy the root filesystem and boot components to the drive. Extracting the root filesystem will take time, so be patient while it runs.
 
 Booting from USB in U-Boot
 --------------------------
 
-To accesss the u-boot console, use the following steps:
+To access the u-boot console on the Pluto, use the following steps:
 
 1. Connect to the Pluto using a USB-JTAG adapter and your serial terminal of choice (Minicom, screen, tio, etc.).  For example, ``sudo screen /dev/ttyUSB0 115200``
 2. Log into the Pluto's Linux console using the username "root" and default password "analog"
 3. Run ``device_reboot break`` to reboot the device and halt at the u-boot console
 
- From the u-boot console, paste in the following command and press enter to start the boot process.
+From the u-boot console, paste in the following command and press enter to start the boot process.
 
 .. code-block:: console
 
-    usb start && load usb 0 ${fit_load_address} zImage_aa && load usb 0 0x23d67e0 zImage_ab && load usb 0 ${devicetree_load_address} system.dtb && setenv bootargs "console=ttyPS0,115200n8 root=/dev/sda rw rootfstype=ext4 mem=512M earlyprintk rootwait" && bootz ${fit_load_address} - ${devicetree_load_address}
+    usb start && load usb 0 ${fit_load_address} zImage_aa && load usb 0 0x23d67e0 zImage_ab && load usb 0 ${devicetree_load_address} system.dtb && setenv bootargs "console=ttyPS0,115200n8 root=/dev/sda rw rootfstype=ext4 mem=512M rootwait" && bootz ${fit_load_address} - ${devicetree_load_address}
 
 This command executes the following steps:
 

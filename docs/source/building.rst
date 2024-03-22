@@ -1,12 +1,12 @@
 Building the PYNQ Image
 =======================
 
-The build process is tested on Ubuntu 20.04.
+The build process is tested on Ubuntu 20.04. Unless otherwise specified, the build commands expect to be run from the repository root directory (``Pluto-PYNQ/``).
 
 Installing Xilinx Tools
 -----------------------
 
-The PYNQ v3.0 release requires the use of Xilinx tools v2022.1. This includes Vivado, Vitis, PetaLinux, and Bootgen. After installing the Xilinx tools, add the following lines to your ``.bashrc`` file and run ``source .bashrc`` to apply the changes.
+The PYNQ v3.0 release requires the use of Xilinx tools v2022.1. This includes Vivado, Vitis, PetaLinux, and Bootgen. After installing the Xilinx tools, add the following lines to your ``.bashrc`` file and run ``source .bashrc`` to apply the changes.  These paths assume that you have installed the Xilinx tools to the default locations. If you installed them to a different directory, update the paths as appropriate for your system.
 
 .. code-block:: console
     
@@ -17,7 +17,7 @@ The PYNQ v3.0 release requires the use of Xilinx tools v2022.1. This includes Vi
     source /tools/Xilinx/PetaLinux/2022.1/settings.sh
     export VIVADO_VERSION=v2022.1
 
-Ensure that you also install the necessary cable drivers for communicating with the Zynq SoC via JTAG.
+Also install the necessary cable drivers for communicating with the Zynq SoC via JTAG, if desired. This step is not necessary for booting the PYNQ image, but is required if the boot process fails and the Pluto needs to be recovered via the `ADI device unbricking process <https://wiki.analog.com/university/tools/pluto/devs/fpga>`_.
 
 .. code-block:: console
 
@@ -28,6 +28,7 @@ The ADI Pluto firmware build process expects that the Xilinx tools are installed
 
 .. code-block:: console
 
+    sudo mkdir -p /opt/Xilinx/Vivado/v2022.1/
     sudo ln -s /tools/Xilinx/Vivado/2022.1/* /opt/Xilinx/Vivado/v2022.1/
 
 Installing PYNQ Dependencies
@@ -42,14 +43,4 @@ A host setup script is provided to install the PYNQ dependencies, add the depend
 Building the Base Image
 -----------------------
 
-The Pluto-PYNQ image can be built by running ``make`` from the project root directory.  First, the base Vivado project will be built in the board directory (``./Pluto/base``), and then the board directory will be copied into ``./PYNQ/sdbuild/boards`` to build the PYNQ image.
-
-+-----------------------------------------------------------------+
-|                             Make Targets                        |
-+=============+====================+==============================+
-|   ``all``   | Builds the base Vivado project and the PYNQ image |
-+-------------+--------------------+------------------------------+
-|   ``base``  | Builds the base Vivado project                    |
-+-------------+--------------------+------------------------------+
-|   ``pynq``  | Builds the PYNQ image in ``./PYNQ/sdbuild/output``|
-+-------------+--------------------+------------------------------+
+The Pluto-PYNQ Linux image can be built by running ``make image`` from the project root directory.

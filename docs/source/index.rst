@@ -6,17 +6,19 @@
 Pluto-PYNQ
 ==========
 
-**Pluto-PYNQ** is a :doc:`PYNQ <pynq>` v3.0.1 embedded Linux image for the :doc:`pluto` software defined radio.
+**Pluto-PYNQ** is a :doc:`PYNQ <pynq>` v3.0.1 embedded Linux image for the :doc:`pluto` software defined radio. The project is built using ``make``, which is documented on the :ref:`Makefile Targets` page.
 
 Contents
 --------
 .. toctree::
+   
    sdr_primer
    pluto
    pynq
-   building
    adi_firmware
+   building
    installing
+   makefiles
    references
 
 
