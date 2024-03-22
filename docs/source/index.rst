@@ -11,14 +11,14 @@ Pluto-PYNQ
 Contents
 --------
 .. toctree::
-   
+
    sdr_primer
    pluto
    pynq
    adi_firmware
    building
    installing
-   makefiles
+   makefile
    references
 
 
