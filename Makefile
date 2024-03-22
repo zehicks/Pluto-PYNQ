@@ -1,7 +1,12 @@
 USB_PATH ?=
 USB_PATH_MSG := "Error: USB_PATH is required. Please provide the path to your mounted USB drive"
 
-all: base pynq usb
+all: docs base pynq usb
+
+.PHONY: docs
+
+docs:
+	$(MAKE) -C ./docs html
 
 image: base pynq
 
