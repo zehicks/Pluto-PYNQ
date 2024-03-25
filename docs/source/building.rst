@@ -43,4 +43,8 @@ A host setup script is provided to install the PYNQ dependencies, add the depend
 Building the Base Image
 -----------------------
 
-The Pluto-PYNQ Linux image can be built by running ``make image`` from the project root directory.
+The Pluto-PYNQ Linux image can be built by running the following command from the project root directory:
+
+.. code-block:: console
+
+    make image

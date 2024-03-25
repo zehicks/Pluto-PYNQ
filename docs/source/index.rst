@@ -15,9 +15,9 @@ Contents
    sdr_primer
    pluto
    pynq
-   adi_firmware
    building
    installing
+   adi_firmware
    makefile
    references
 

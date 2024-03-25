@@ -12,7 +12,11 @@ Format a 32 GB USB drive as ``ext4`` with no partition table using the following
     
     sudo mkfs.ext4 -L <VOLUME_NAME> /dev/<YOUR_DEVICE>
 
-Then, remount the drive and run ``make usb USB_PATH=<PATH/TO/YOUR/MOUNT>`` to copy the root filesystem and boot components to the drive. Extracting the root filesystem will take time, so be patient while it runs.
+Then, remount the drive and run the following commands to copy the root filesystem and boot components to the drive. Extracting the root filesystem will take time, so be patient while it runs.
+
+.. code-block:: console
+
+    make usb USB_PATH=<PATH/TO/YOUR/MOUNT>
 
 Booting from USB in U-Boot
 --------------------------

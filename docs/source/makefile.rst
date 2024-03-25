@@ -54,8 +54,8 @@ Next, the output files are copied into the directory structure expected by the P
 .. code-block:: console
 
     cp ./Pluto/base/system/pluto.runs/impl_1/system_top.bit ./Pluto/base/system_top.bit
-	cp ./Pluto/base/system/pluto.gen/sources_1/bd/system/hw_handoff/system.hwh ./Pluto/base/system.hwh
-	cp ./Pluto/base/system/pluto.sdk/system_top.xsa ./Pluto/petalinux_bsp/hardware_project/system_top.xsa
+    cp ./Pluto/base/system/pluto.gen/sources_1/bd/system/hw_handoff/system.hwh ./Pluto/base/system.hwh
+    cp ./Pluto/base/system/pluto.sdk/system_top.xsa ./Pluto/petalinux_bsp/hardware_project/system_top.xsa
 
 ``make pynq``
 -------------
@@ -65,7 +65,7 @@ The ``pynq`` target first copies the ``./Pluto`` directory into ``./PYNQ/boards`
 .. code-block:: console
 
     cp -r ./Pluto ./PYNQ/boards
-	$(MAKE) -C ./PYNQ/sdbuild BOARDS=Pluto
+    $(MAKE) -C ./PYNQ/sdbuild BOARDS=Pluto
 
 The PYNQ build process appears to support pointing to a board directory that is not in the ``./PYNQ/boards`` directory, but attempting that build process resulted in errors. Copying the full directory in was selected as the simplest solution.
 
@@ -77,8 +77,8 @@ The ``usb`` target will set up a USB drive as a PYNQ bootstick. First, the prebu
 .. code-block:: console
 
     cp ./PYNQ/sdbuild/prebuilt/pynq_rootfs.arm.tar.gz $(USB_PATH)
-	tar -xzf $(USB_PATH)/pynq_rootfs.arm.tar.gz -C $(USB_PATH)
-	rm $(USB_PATH)/pynq_rootfs.arm.tar.gz
+    tar -xzf $(USB_PATH)/pynq_rootfs.arm.tar.gz -C $(USB_PATH)
+    rm $(USB_PATH)/pynq_rootfs.arm.tar.gz
 
 Next, the compressed kernel and devicetree blob are also copied to the root of the USB drive:
 
