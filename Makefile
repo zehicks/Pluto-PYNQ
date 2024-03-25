@@ -6,6 +6,7 @@ all: docs base pynq usb
 .PHONY: docs
 
 docs:
+	rm -rf ./docs/build
 	$(MAKE) -C ./docs html
 
 image: base pynq
@@ -21,17 +22,15 @@ pynq:
 	$(MAKE) -C ./PYNQ/sdbuild BOARDS=Pluto
 
 usb:
-	ifndef USB_PATH
-		@echo $(USB_PATH_MSG)
-		@exit 1
-	else
-		cp ./PYNQ/sdbuild/prebuilt/pynq_rootfs.arm.tar.gz $(USB_PATH)
-		tar -xzf $(USB_PATH)/pynq_rootfs.arm.tar.gz -C $(USB_PATH)
-		rm $(USB_PATH)/pynq_rootfs.arm.tar.gz
-		cp ./PYNQ/sdbuild/build/Pluto/system.dtb $(USB_PATH)
-		cp ./PYNQ/sdbuild/build/Pluto/zImage $(USB_PATH)
-		split -b 3500000 $(USB_PATH)/zImage $(USB_PATH)/zImage_
-	endif
+	@[ "${USB_PATH}" ] || ( echo $(USB_PATH_MSG); exit 1 )
+	sudo chown -R $(USER):$(USER) $(USB_PATH)
+	sudo rm -rf $(USB_PATH)/*
+	cp ./PYNQ/sdbuild/prebuilt/pynq_rootfs.arm.tar.gz $(USB_PATH)
+	tar -xzvf $(USB_PATH)/pynq_rootfs.arm.tar.gz -C $(USB_PATH)
+	rm $(USB_PATH)/pynq_rootfs.arm.tar.gz
+	cp ./PYNQ/sdbuild/build/Pluto/system.dtb $(USB_PATH)
+	cp ./PYNQ/sdbuild/build/Pluto/zImage $(USB_PATH)
+	split -b 3500000 $(USB_PATH)/zImage $(USB_PATH)/zImage_
 
 clean:
 	rm -rf ./Pluto/base/system/.Xil ./Pluto/base/system/pluto.* ./Pluto/base/system/pluto.xpr ./Pluto/base/system/*.log ./Pluto/base/system/*.jou
