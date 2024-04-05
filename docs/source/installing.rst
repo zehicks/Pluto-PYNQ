@@ -31,7 +31,7 @@ From the u-boot console, paste in the following command and press enter to start
 
 .. code-block:: console
 
-    usb start && load usb 0 ${fit_load_address} zImage_aa && load usb 0 0x23d67e0 zImage_ab && load usb 0 ${devicetree_load_address} system.dtb && setenv bootargs "console=ttyPS0,115200n8 root=/dev/sda rw rootfstype=ext4 mem=512M rootwait" && bootz ${fit_load_address} - ${devicetree_load_address}
+    usb start && load usb 0 ${fit_load_address} zImage_aa && load usb 0 0x2407520 zImage_ab && load usb 0 ${devicetree_load_address} system.dtb && setenv bootargs "console=ttyPS0,115200n8 root=/dev/sda rw rootfstype=ext4 mem=512M rootwait" && bootz ${fit_load_address} - ${devicetree_load_address}
 
 This command executes the following steps:
 

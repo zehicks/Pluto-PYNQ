@@ -30,7 +30,7 @@ usb:
 	rm $(USB_PATH)/pynq_rootfs.arm.tar.gz
 	cp ./PYNQ/sdbuild/build/Pluto/system.dtb $(USB_PATH)
 	cp ./PYNQ/sdbuild/build/Pluto/zImage $(USB_PATH)
-	split -b 3500000 $(USB_PATH)/zImage $(USB_PATH)/zImage_
+	split -b 3700000 $(USB_PATH)/zImage $(USB_PATH)/zImage_
 
 clean:
 	rm -rf ./Pluto/base/system/.Xil ./Pluto/base/system/pluto.* ./Pluto/base/system/pluto.xpr ./Pluto/base/system/*.log ./Pluto/base/system/*.jou
