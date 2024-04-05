@@ -18,15 +18,15 @@ base:
 	cp ./Pluto/base/system/pluto.sdk/system_top.xsa ./Pluto/petalinux_bsp/hardware_project/system_top.xsa
 
 pynq:
-	cp -r ./Pluto ./PYNQ/boards
+	yes | cp -rf ./Pluto ./PYNQ/boards
 	$(MAKE) -C ./PYNQ/sdbuild BOARDS=Pluto
 
 usb:
 	@[ "${USB_PATH}" ] || ( echo $(USB_PATH_MSG); exit 1 )
 	sudo chown -R $(USER):$(USER) $(USB_PATH)
 	sudo rm -rf $(USB_PATH)/*
-	cp ./PYNQ/sdbuild/prebuilt/pynq_rootfs.arm.tar.gz $(USB_PATH)
-	tar -xzvf $(USB_PATH)/pynq_rootfs.arm.tar.gz -C $(USB_PATH)
+	cp ./PYNQ/sdbuild/build/Pluto.tar.gz $(USB_PATH)
+	tar -xzvf $(USB_PATH)/Pluto.tar.gz -C $(USB_PATH)
 	rm $(USB_PATH)/pynq_rootfs.arm.tar.gz
 	cp ./PYNQ/sdbuild/build/Pluto/system.dtb $(USB_PATH)
 	cp ./PYNQ/sdbuild/build/Pluto/zImage $(USB_PATH)
