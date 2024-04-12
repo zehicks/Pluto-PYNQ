@@ -10,7 +10,7 @@ Format a 32 GB USB drive as ``ext4`` with no partition table using the following
 
 .. code-block:: console
     
-    sudo mkfs.ext4 -L <VOLUME_NAME> /dev/<YOUR_DEVICE>
+    sudo mkfs.ext4 -O ^64bit -L <VOLUME_NAME> /dev/<YOUR_DEVICE>
 
 Then, remount the drive and run the following commands to copy the root filesystem and boot components to the drive. Extracting the root filesystem will take time, so be patient while it runs.
 
