@@ -27,9 +27,9 @@ usb:
 	cp ./PYNQ/sdbuild/build/Pluto.tar.gz $(USB_PATH)
 	sudo tar -xpzvf $(USB_PATH)/Pluto.tar.gz -C $(USB_PATH)
 	rm $(USB_PATH)/Pluto.tar.gz
-	cp ./PYNQ/sdbuild/build/Pluto/system.dtb $(USB_PATH)/boot
-	cp ./PYNQ/sdbuild/build/Pluto/zImage $(USB_PATH)/boot
-	split -b 3700000 $(USB_PATH)/boot/zImage $(USB_PATH)/boot/zImage_
+	sudo cp ./PYNQ/sdbuild/build/Pluto/system.dtb $(USB_PATH)
+	sudo cp ./PYNQ/sdbuild/build/Pluto/zImage $(USB_PATH)
+	sudo split -b 3700000 $(USB_PATH)/boot/zImage $(USB_PATH)/zImage_
 
 clean:
 	rm -rf ./Pluto/base/system/.Xil ./Pluto/base/system/pluto.* ./Pluto/base/system/pluto.xpr ./Pluto/base/system/*.log ./Pluto/base/system/*.jou
