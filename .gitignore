@@ -3,3 +3,4 @@
 **/*.jou
 Pluto/base/system/pluto.*
 **/.Xil
+.vscode/
