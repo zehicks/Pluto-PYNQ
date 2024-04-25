@@ -20,6 +20,7 @@ make install
 # Install IIO and dependencies
 cd /root
 wget http://launchpadlibrarian.net/571174055/libiio-utils_0.23-2_armhf.deb
+apt update
 apt download $(apt-cache depends --recurse --no-recommends --no-suggests --no-conflicts --no-breaks --no-replaces --no-enhances libiio-dev | grep "^\w" | sort -u)
 dpkg -i *.deb
 
