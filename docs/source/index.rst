@@ -19,6 +19,7 @@ Contents
    installing
    adi_firmware
    makefile
+   narrative
    references
 
 
