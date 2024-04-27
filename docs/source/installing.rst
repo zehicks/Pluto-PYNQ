@@ -38,7 +38,6 @@ This command executes the following steps:
 1. Start the USB subsystem
 2. Load the base FPGA bit stream
 3. Configure the FPGA using the base bitstream
-4. Load both parts of the compressed kernel image into RAM at contiguous memory addresses
-5. Load the device tree blob into RAM
-6. Set the kernel boot arguments for booting from USB
-7. Boot Linux using the loaded kernel image and device tree
+4. Load both parts of the FIT image (image.ub) into RAM
+5. Set the kernel boot arguments for booting from USB
+6. Boot Linux using the loaded kernel image and device tree
