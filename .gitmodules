@@ -1,12 +1,12 @@
 [submodule "hdl"]
 	path = hdl
 	url = https://github.com/analogdevicesinc/hdl.git
-[submodule "PYNQ"]
-	path = PYNQ
-	url = https://github.com/Xilinx/PYNQ.git
 [submodule "plutosdr-fw"]
 	path = plutosdr-fw
 	url = git@github.com:zehicks/plutosdr-fw.git
 [submodule "Pluto/petalinux_bsp/meta-adi"]
 	path = Pluto/petalinux_bsp/meta-adi
 	url = git@github.com:analogdevicesinc/meta-adi.git
+[submodule "PYNQ"]
+	path = PYNQ
+	url = git@github.com:zehicks/PYNQ.git
