@@ -11,7 +11,7 @@ Required Kernel Modules
 
 The AD9364 uses both SPI and I2C interfaces for communication with a processor, so these features were enabled in the PetaLinux kernel. Kernel support for the RTL8153 network adapter was also enabled, because the TP-Link USB hub/network adapter that was used contains this chip.
 
-AD9364 Support 
+AD9364 Support
 ^^^^^^^^^^^^^^
 
 Using the AD9364 tranceiver from Linux requires both kernel IIO drivers and a device-specific kernel driver. The IIO drivers are in mainline Linux and are already present in the PetaLinux kernel, but the AD9364 drivers are not. Support for the AD9364 kernel modules and drivers is enabled using the Analog Devices ``meta-adi`` yocto layer. PYNQ relies on the FPGA manager framework, so no FPGA bitstream is loaded upon boot. Without the base bitstream loaded, the AXI interfaces for communication with the AD9364 are not present, and the kernel boot will hang. To avoid this, the AD9364 must be loaded as a device tree overlay with the base bitstream.

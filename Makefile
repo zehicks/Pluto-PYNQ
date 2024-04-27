@@ -16,6 +16,7 @@ base:
 	cp ./Pluto/base/system/pluto.runs/impl_1/system_top.bit ./Pluto/base/system_top.bit
 	cp ./Pluto/base/system/pluto.gen/sources_1/bd/system/hw_handoff/system.hwh ./Pluto/base/system.hwh
 	cp ./Pluto/base/system/pluto.sdk/system_top.xsa ./Pluto/petalinux_bsp/hardware_project/system_top.xsa
+	python3 fpga-bit-to-bin.py ./Pluto/base/system_top.bit ./Pluto/base/system_top.bit.bin
 
 pynq/kernel:
 	rm -rf ./PYNQ/boards/Pluto
@@ -34,6 +35,7 @@ usb:
 	cp ./PYNQ/sdbuild/build/Pluto.tar.gz $(USB_PATH)
 	sudo tar -xzvf $(USB_PATH)/Pluto.tar.gz -C $(USB_PATH)
 	rm $(USB_PATH)/Pluto.tar.gz
+	sudo cp ./Pluto/base/system_top.bit.bin $(USB_PATH)
 	sudo cp ./PYNQ/sdbuild/build/Pluto/system.dtb $(USB_PATH)
 	sudo cp ./PYNQ/sdbuild/build/Pluto/zImage $(USB_PATH)
 	sudo split -b 3700000 $(USB_PATH)/zImage $(USB_PATH)/zImage_

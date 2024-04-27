@@ -31,12 +31,14 @@ From the u-boot console, paste in the following command and press enter to start
 
 .. code-block:: console
 
-    usb start && load usb 0 ${fit_load_address} zImage_aa && load usb 0 0x2407520 zImage_ab && load usb 0 ${devicetree_load_address} system.dtb && setenv bootargs "console=ttyPS0,115200n8 root=/dev/sda rw rootfstype=ext4 mem=512M rootwait" && bootz ${fit_load_address} - ${devicetree_load_address}
+    usb start && load usb 0 0x2500000 system_top.bit.bin && fpga load 0 0x2500000 0xeb6fc && load usb 0 ${fit_load_address} zImage_aa && load usb 0 0x2407520 zImage_ab && load usb 0 ${devicetree_load_address} system.dtb && setenv bootargs "console=ttyPS0,115200n8 root=/dev/sda rw rootfstype=ext4 mem=512M rootwait" && bootz ${fit_load_address} - ${devicetree_load_address}
 
 This command executes the following steps:
 
 1. Start the USB subsystem
-2. Load both parts of the compressed kernel image into RAM at contiguous memory addresses
-3. Load the device tree blob into RAM
-4. Configure the boot arguments for booting from USB
-5. Boot using the loaded kernel image and device tree
+2. Load the base FPGA bit stream
+3. Configure the FPGA using the base bitstream
+4. Load both parts of the compressed kernel image into RAM at contiguous memory addresses
+5. Load the device tree blob into RAM
+6. Set the kernel boot arguments for booting from USB
+7. Boot Linux using the loaded kernel image and device tree
