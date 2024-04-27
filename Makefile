@@ -17,7 +17,7 @@ base:
 	cp ./Pluto/base/system/pluto.gen/sources_1/bd/system/hw_handoff/system.hwh ./Pluto/base/system.hwh
 	cp ./Pluto/base/system/pluto.sdk/system_top.xsa ./Pluto/petalinux_bsp/hardware_project/system_top.xsa
 
-pynq_kernel:
+pynq/kernel:
 	rm -rf ./PYNQ/boards/Pluto
 	cp -r ./Pluto ./PYNQ/boards
 	$(MAKE) -C ./PYNQ/sdbuild BOARDS=Pluto boot_files
