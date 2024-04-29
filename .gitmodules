@@ -10,3 +10,6 @@
 [submodule "Pluto/petalinux_bsp/meta-adi"]
 	path = Pluto/petalinux_bsp/meta-adi
 	url = git@github.com:analogdevicesinc/meta-adi.git
+[submodule "PlutoSDR/project-spec/meta-adi"]
+	path = PlutoSDR/project-spec/meta-adi
+	url = git@github.com:zehicks/meta-adi.git
