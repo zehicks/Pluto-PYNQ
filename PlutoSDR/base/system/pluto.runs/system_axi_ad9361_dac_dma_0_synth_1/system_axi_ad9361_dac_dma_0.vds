@@ -1,0 +1,19 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:47:01 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Tue Mar 26 17:37:51 2024
+# Process ID: 568069
+# Current directory: /home/hicksze1/Pluto-PYNQ/Pluto/base/system/pluto.runs/system_axi_ad9361_dac_dma_0_synth_1
+# Command line: vivado -log system_axi_ad9361_dac_dma_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_axi_ad9361_dac_dma_0.tcl
+# Log file: /home/hicksze1/Pluto-PYNQ/Pluto/base/system/pluto.runs/system_axi_ad9361_dac_dma_0_synth_1/system_axi_ad9361_dac_dma_0.vds
+# Journal file: /home/hicksze1/Pluto-PYNQ/Pluto/base/system/pluto.runs/system_axi_ad9361_dac_dma_0_synth_1/vivado.jou
+# Running On: pls-work-iv, OS: Linux, CPU Frequency: 2900.000 MHz, CPU Physical cores: 4, Host memory: 16360 MB
+#-----------------------------------------------------------
+source system_axi_ad9361_dac_dma_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 2596.023 ; gain = 8.930 ; free physical = 6849 ; free virtual = 9715
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/hicksze1/Pluto-PYNQ/hdl/library'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2022.1/data/ip'.
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP system_axi_ad9361_dac_dma_0, cache-ID = a489c4ba48904912.
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 26 17:38:03 2024...
