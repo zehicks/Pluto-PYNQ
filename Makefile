@@ -32,10 +32,9 @@ pynq:
 usb:
 	@[ "${USB_PATH}" ] || ( echo $(USB_PATH_MSG); exit 1 )
 	sudo rm -rf $(USB_PATH)/*
-	cp ./PYNQ/sdbuild/build/PlutoSDR.tar.gz $(USB_PATH)
+	sudo cp ./PYNQ/sdbuild/build/PlutoSDR.tar.gz $(USB_PATH)
 	sudo tar -xzvf $(USB_PATH)/PlutoSDR.tar.gz -C $(USB_PATH)
-	rm $(USB_PATH)/PlutoSDR.tar.gz
-	sudo cp ./PlutoSDR/base/system_top.bit.bin $(USB_PATH)
+	sudo rm $(USB_PATH)/PlutoSDR.tar.gz
 	sudo cp ./PYNQ/sdbuild/output/boot/PlutoSDR/image.ub $(USB_PATH)
 	sudo split -b 3850000 $(USB_PATH)/image.ub $(USB_PATH)/image.ub_
 
