@@ -31,14 +31,12 @@ From the u-boot console, paste in the following command and press enter to start
 
 .. code-block:: console
 
-    usb start && load usb 0 0x2500000 system_top.bit.bin && fpga load 0 0x2500000 0xeb6fc && load usb 0 ${fit_load_address} image.ub_aa && load usb 0 0x242bf10 image.ub_ab && setenv bootargs "console=ttyPS0,115200n8 root=/dev/sda rw rootfstype=ext4 mem=512M rootwait earlyprintk" && bootm ${fit_load_address}
+    usb start && load usb 0 ${fit_load_address} image.ub_aa && load usb 0 0x23d67e0 image.ub_ab && load usb 0 0x272cfc0 image.ub_ac && setenv bootargs "console=ttyPS0,115200n8 root=/dev/sda rw rootfstype=ext4 mem=512M rootwait earlyprintk" && bootm ${fit_load_address}
+
 
 This command executes the following steps:
 
 1. Start the USB subsystem
-2. Load the base FPGA bit stream
-3. Configure the FPGA using the base bitstream
-4. Load both parts of the compressed kernel image into RAM at contiguous memory addresses
-5. Load the device tree blob into RAM
-6. Set the kernel boot arguments for booting from USB
-7. Boot Linux using the loaded kernel image and device tree
+2. Load the FIT image into RAM
+3. Set the kernel boot arguments for booting from USB
+4. Boot Linux using the loaded FIT image
