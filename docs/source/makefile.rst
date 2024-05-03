@@ -36,7 +36,7 @@ The ``base`` target first builds the original PlutoSDR FPGA design from ADI in t
 
     $(MAKE) -C ./Pluto/base/system
 
-Next, the output files are copied into the directory structure expected by the PYNQ build process.
+Next, the output files are copied into the directory structure expected by the PYNQ build process. The bitfile is also converted to ``.bit.bin`` format for loading on the FPGA.
 
 .. code-block :: text
 
@@ -56,6 +56,7 @@ Next, the output files are copied into the directory structure expected by the P
     cp ./Pluto/base/system/pluto.runs/impl_1/system_top.bit ./Pluto/base/system_top.bit
     cp ./Pluto/base/system/pluto.gen/sources_1/bd/system/hw_handoff/system.hwh ./Pluto/base/system.hwh
     cp ./Pluto/base/system/pluto.sdk/system_top.xsa ./Pluto/petalinux_bsp/hardware_project/system_top.xsa
+    python3 fpga-bit-to-bin.py ./Pluto/base/system_top.bit ./Pluto/base/system_top.bit.bin
 
 ``make pynq``
 -------------
@@ -80,21 +81,20 @@ The ``usb`` target will set up a USB drive as a PYNQ bootstick. First, the prebu
     tar -xzf $(USB_PATH)/pynq_rootfs.arm.tar.gz -C $(USB_PATH)
     rm $(USB_PATH)/pynq_rootfs.arm.tar.gz
 
-Next, the compressed kernel and devicetree blob are also copied to the root of the USB drive:
+Next, the FPGA bitstream and the FIT image are copied to the root of the USB drive:
 
 .. code-block:: console
 
-    cp ./PYNQ/sdbuild/build/Pluto/zImage /media/<USER>/<USB_DRIVE>
-    cp ./PYNQ/sdbuild/build/Pluto/system.dtb /media/<USER>/<USB_DRIVE>
+    cp ./Pluto/base/system_top.bit.bin $(USB_PATH)
+	cp ./PYNQ/sdbuild/output/boot/Pluto/image.ub $(USB_PATH)
 
-The default u-boot on the Pluto times out when copying large files over USB, so the compressed kernel image must be split into two parts on the USB drive using the following command:
+The default u-boot on the Pluto times out when copying large files over USB, so the FIT image must be split into two parts on the USB drive using the following command:
 
 .. code-block:: console
 
-    cd /media/<USER>/<USB_DRIVE>
-    split -b 3500000 zImage zImage_
+    split -b 3700000 $(USB_PATH)/image.ub $(USB_PATH)/image.ub_
 
-The two components of the compressed kernel are called ``zImage_aa`` and ``zImage_ab``.
+The two components of the compressed kernel are called ``image.ub_aa`` and ``image.ub_ab``.
 
 ``make clean``
 --------------
