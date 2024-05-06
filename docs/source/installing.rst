@@ -31,7 +31,7 @@ From the u-boot console, paste in the following command and press enter to start
 
 .. code-block:: console
 
-    usb start && load usb 0 ${fit_load_address} image.ub_aa && load usb 0 0x23d67e0 image.ub_ab && load usb 0 0x272cfc0 image.ub_ac && setenv bootargs "console=ttyPS0,115200n8 root=/dev/sda rw rootfstype=ext4 mem=512M rootwait earlyprintk" && bootm ${fit_load_address}
+    usb start && load usb 0 0x2500000 system_top.bit.bin && fpga load 0 0x2500000 0xeb6fc && load usb 0 ${fit_load_address} image.ub_aa && load usb 0 0x23d67e0 image.ub_ab && load usb 0 0x272cfc0 image.ub_ac && setenv bootargs "console=ttyPS0,115200n8 root=/dev/sda rw rootfstype=ext4 mem=512M rootwait earlyprintk" && bootm ${fit_load_address}
 
 
 This command executes the following steps:
