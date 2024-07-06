@@ -37,6 +37,8 @@ From the u-boot console, paste in the following command and press enter to start
 This command executes the following steps:
 
 1. Start the USB subsystem
-2. Load the FIT image into RAM
-3. Set the kernel boot arguments for booting from USB
-4. Boot Linux using the loaded FIT image
+2. Load the FPGA bitstream into RAM
+3. Configure the FPGA using the loaded bitstream
+4. Load the FIT image into RAM
+5. Set the kernel boot arguments for booting from USB
+6. Boot Linux using the loaded FIT image
