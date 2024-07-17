@@ -1,6 +1,7 @@
 **/build
 **/*.log
 **/*.jou
-Pluto/base/system/pluto.*
+PlutoSDR/base/system/pluto.*
+PlutoSDR/base/system.bit
 **/.Xil
 .vscode/
