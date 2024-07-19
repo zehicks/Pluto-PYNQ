@@ -4,9 +4,6 @@
 [submodule "plutosdr-fw"]
 	path = plutosdr-fw
 	url = git@github.com:zehicks/plutosdr-fw.git
-[submodule "PlutoSDR/project-spec/meta-adi"]
-	path = PlutoSDR/project-spec/meta-adi
-	url = git@github.com:zehicks/meta-adi.git
 [submodule "PYNQ"]
 	path = PYNQ
 	url = git@github.com:zehicks/PYNQ.git

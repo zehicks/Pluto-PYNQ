@@ -116,16 +116,16 @@ CONFIG_SUBSYSTEM_ENDIAN_LITTLE=y
 # DTG Settings
 #
 CONFIG_SUBSYSTEM_MACHINE_NAME="template"
-CONFIG_SUBSYSTEM_EXTRA_DT_FILES=""
+CONFIG_SUBSYSTEM_EXTRA_DT_FILES="${PROOT}/project-spec/meta-user/recipes-bsp/device-tree/files/system_overlay.dtso"
 
 #
 # Kernel Bootargs
 #
 CONFIG_SUBSYSTEM_BOOTARGS_AUTO=y
 CONFIG_SUBSYSTEM_BOOTARGS_EARLYPRINTK=y
-CONFIG_SUBSYSTEM_BOOTARGS_GENERATED="console=ttyPS0,115200 earlycon root=/dev/mmcblk0p2 rw rootwait"
+
 CONFIG_SUBSYSTEM_DEVICETREE_COMPILER_FLAGS="-@"
-# CONFIG_SUBSYSTEM_DTB_OVERLAY is not set
+CONFIG_SUBSYSTEM_DTB_OVERLAY=y
 # CONFIG_SUBSYSTEM_REMOVE_PL_DTB is not set
 # CONFIG_SUBSYSTEM_ENABLE_NO_ALIAS is not set
 # CONFIG_SUBSYSTEM_ENABLE_DT_VERBOSE is not set
@@ -254,6 +254,6 @@ CONFIG_YOCTO_NETWORK_SSTATE_FEEDS_URL="http://petalinux.xilinx.com/sswreleases/r
 #
 # User Layers
 #
-CONFIG_USER_LAYER_0="$PROOT/project-spec/meta-adi/meta-adi-core"
-CONFIG_USER_LAYER_1="$PROOT/project-spec/meta-adi/meta-adi-xilinx"
-CONFIG_USER_LAYER_2=""
+CONFIG_USER_LAYER_0="${PROOT}/../PYNQ/sdbuild/boot/meta-pynq/"
+CONFIG_USER_LAYER_1=""
+CONFIG_SUBSYSTEM_BOOTARGS_GENERATED="console=ttyPS0,115200 earlycon root=/dev/mmcblk0p2 rw rootwait"

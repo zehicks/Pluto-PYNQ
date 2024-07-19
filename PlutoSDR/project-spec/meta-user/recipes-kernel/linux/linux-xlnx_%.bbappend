@@ -1,12 +1,8 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
-SRC_URI:append = " file://bsp.cfg"
+SRC_URI:append = " file://bsp.cfg \
+                   file://0001-add-support-for-adi-linux-kernel.patch "
 KERNEL_FEATURES:append = " bsp.cfg"
-SRC_URI += "file://user_2024-04-26-22-56-00.cfg \
-            file://user_2024-04-27-15-59-00.cfg \
-            file://user_2024-04-28-01-26-00.cfg \
-            file://user_2024-04-28-02-44-00.cfg \
-            file://user_2024-04-29-23-13-00.cfg \
-            file://user_2024-04-30-01-38-00.cfg \
+SRC_URI += "file://user_2024-07-17-03-16-00.cfg \
+            file://adi.cfg \
             "
-
