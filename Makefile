@@ -15,7 +15,7 @@ base:
 	$(MAKE) -C ./PlutoSDR/base/system
 	cp ./PlutoSDR/base/system/pluto.runs/impl_1/system_top.bit ./PlutoSDR/base/system_top.bit
 	cp ./PlutoSDR/base/system/pluto.gen/sources_1/bd/system/hw_handoff/system.hwh ./PlutoSDR/base/system.hwh
-	cp ./PlutoSDR/base/system/pluto.sdk/system_top.xsa ./PlutoSDR/petalinux_bsp/hardware_project/system_top.xsa
+	cp ./PlutoSDR/base/system/pluto.sdk/system_top.xsa ./PlutoSDR/base/system_top.xsa
 	python3 fpga-bit-to-bin.py ./PlutoSDR/base/system_top.bit ./PlutoSDR/base/system_top.bit.bin
 
 pynq/kernel:
@@ -23,7 +23,6 @@ pynq/kernel:
 	cp -r ./PlutoSDR ./PYNQ/boards
 	$(MAKE) -C ./PYNQ/sdbuild BOARDS=PlutoSDR boot_files
  
-
 pynq:
 	rm -rf ./PYNQ/boards/PlutoSDR
 	cp -r ./PlutoSDR ./PYNQ/boards
