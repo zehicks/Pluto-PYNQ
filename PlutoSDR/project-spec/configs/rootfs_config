@@ -3759,7 +3759,7 @@ CONFIG_u-boot-tools=y
 #
 # packagegroup-petalinux 
 #
-# CONFIG_packagegroup-petalinux is not set
+CONFIG_packagegroup-petalinux=y
 # CONFIG_packagegroup-petalinux-dev is not set
 # CONFIG_packagegroup-petalinux-dbg is not set
 
@@ -3780,7 +3780,7 @@ CONFIG_u-boot-tools=y
 #
 # packagegroup-petalinux-lmsensors 
 #
-# CONFIG_packagegroup-petalinux-lmsensors is not set
+CONFIG_packagegroup-petalinux-lmsensors=y
 # CONFIG_packagegroup-petalinux-lmsensors-dbg is not set
 # CONFIG_packagegroup-petalinux-lmsensors-dev is not set
 
@@ -3822,7 +3822,7 @@ CONFIG_u-boot-tools=y
 #
 # packagegroup-petalinux-python-modules 
 #
-# CONFIG_packagegroup-petalinux-python-modules is not set
+CONFIG_packagegroup-petalinux-python-modules=y
 # CONFIG_packagegroup-petalinux-python-modules-dbg is not set
 # CONFIG_packagegroup-petalinux-python-modules-dev is not set
 

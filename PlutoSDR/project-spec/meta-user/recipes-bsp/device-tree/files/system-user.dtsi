@@ -15,3 +15,10 @@
     usb-phy = <&usb_phy0>;
     status = "okay";
 };
+
+&amba {
+    zyxclmm_drm {
+        compatible = "xlnx,zocl";
+        status = "okay";
+    }l
+};
