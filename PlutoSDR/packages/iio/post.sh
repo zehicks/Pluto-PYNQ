@@ -3,4 +3,6 @@
 set -x
 set -e
 
-sudo rm -rf /root/libini /root/*.deb /root/master.zip
+target=$1
+
+sudo rm -rf $target/root/libini $target/root/*.deb $target/root/master.zip $target/root/v0.3.zip
