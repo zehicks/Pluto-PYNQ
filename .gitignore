@@ -3,5 +3,6 @@
 **/*.jou
 PlutoSDR/base/system/pluto.*
 PlutoSDR/base/system.bit
+**/.petalinux/
 **/.Xil
 .vscode/
